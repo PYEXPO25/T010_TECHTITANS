@@ -4,7 +4,7 @@
 
 ## Problem Statement
 
-*Problem Statement ID – xxxxx*
+*Problem Statement ID – PY068*
 
 Formulate your problem statement clearly and concisely.
 
@@ -18,18 +18,18 @@ Provide an overview of the project, its purpose, and what it aims to achieve alo
 
 ## Team Members
 
-*Team ID – xxxxx*
+*Team ID – T010*
 
 List your team members along with their roles.
 
-- *Member 1* - Team Leader
-- *Member 2* - Role
-- *Member 3* - Role
-- *Member 4* - Role
-- *Member 5* - Role
-- *Member 6* - Role
-- *Member 7* - Role
-- *Member 8* - Role
+- *SOWMYA* - FRONTEND
+- *RAMYA* - FRONTEND
+- *ROSHMITA * - BACKEND
+- *BHAVATHARINI* - BACKEND
+- *SRIMATHI* - SPOOF_DETECTION
+- *NANDHINI* - TENSORFLOW
+- 
+- 
 
 ![Team Photo](media/team-photo.png)
 
@@ -39,10 +39,10 @@ List your team members along with their roles.
 
 List the technologies and tools used in the project. For example:
 
-- *Frontend:* HTML, CSS, JavaScript, ReactJS
-- *Backend:* Flask, Django
-- *Database:* MongoDB, MySQL
-- *Other Tools:* Docker, Git, TensorFlow
+- *Frontend:* HTML, CSS, 
+- *Backend:* Flask, 
+- *Database: MySQL
+- *Other Tools: Git, TensorFlow
 
 ---
 
@@ -122,12 +122,12 @@ Images to demonstrate the user interface:
 ## Resources
 
 ### 📄 PowerPoint Presentation
-[Click here to view the PPT](insert-drive-link-here)
+[Click here to view the PPT](https://docs.google.com/presentation/d/1wm4E7OYhwQwrkiAYKdpEEBzRWV4ALLAk/edit?usp=drive_link&ouid=107618306670676857739&rtpof=true&sd=true)
 
 ### 🎥 Project Video
 [Click here to view the project demo video](insert-drive-link-here)
 
 ### 📹 YouTube Link
-[Watch the project on YouTube](insert-youtube-link-here)
+[Watch the project on YouTube](https://youtu.be/E117db5VsTs?si=auBPpOkru_deTy5G)
 
 ---
