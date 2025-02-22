@@ -1,0 +1,44 @@
+import cv2
+import numpy as np
+
+# Load the pre-trained model
+prototxt_path = "deploy.prototxt"  # Path to prototxt file
+model_path = "res10_300x300_ssd_iter_140000.caffemodel"  # Path to Caffe model
+
+net = cv2.dnn.readNetFromCaffe(prototxt_path, model_path)
+
+# Read an image
+image_path = "face.jpg"  # Path to your test image
+image = cv2.imread(image_path)
+
+# Get image dimensions
+h, w = image.shape[:2]
+
+# Convert image to blob format
+blob = cv2.dnn.blobFromImage(image, scalefactor=1.0, size=(300, 300),
+                             mean=(104.0, 177.0, 123.0), swapRB=False, crop=False)
+
+# Set the input for the model
+net.setInput(blob)
+
+# Perform forward pass to get face detections
+detections = net.forward()
+
+# Loop through detections
+for i in range(detections.shape[2]):
+    confidence = detections[0, 0, i, 2]
+    
+    if confidence > 0.5:  # Confidence threshold
+        # Get bounding box coordinates
+        box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+        (x1, y1, x2, y2) = box.astype("int")
+
+        # Draw rectangle and confidence text
+        cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        text = f"{confidence:.2f}"
+        cv2.putText(image, text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+# Show the image with detected faces
+cv2.imshow("Face Detection", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
