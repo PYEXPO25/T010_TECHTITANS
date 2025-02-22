@@ -1,3 +1,4 @@
+# T010_TECHTITANS
 ![PyExpo Logo](media/pyexpo-logo.png)
 
 ---
@@ -6,13 +7,14 @@
 
 *Problem Statement ID – PY068*
 
-Formulate your problem statement clearly and concisely.
+AI BASED EXAM PROCTORING SYSTEM
 
 ---
 
 ## Overview
 
-Provide an overview of the project, its purpose, and what it aims to achieve along with proposed solution
+This project aims to create a app that monitors students during online exams using computer vision and natural language processing (NLP). 
+It will watch for suspicious behaviors like looking away from the screen,multiple faces or background noise and check for plagiarism in text. The app will logout any violations and provide a detailed report for teachers to ensure fairness in exams.
 
 ---
 
@@ -24,8 +26,8 @@ List your team members along with their roles.
 
 - *SOWMYA* - FRONTEND
 - *RAMYA* - FRONTEND
-- *ROSHMITA * - BACKEND
 - *BHAVATHARINI* - BACKEND
+- *ROSHMITA* - BACKEND
 - *SRIMATHI* - SPOOF_DETECTION
 - *NANDHINI* - TENSORFLOW
 - 
@@ -39,10 +41,10 @@ List your team members along with their roles.
 
 List the technologies and tools used in the project. For example:
 
-- *Frontend:* HTML, CSS, 
-- *Backend:* Flask, 
-- *Database: MySQL
-- *Other Tools: Git, TensorFlow
+- *Frontend:* HTML, CSS
+- *Backend:* Flask
+- *Database:*  MySQL
+- *Other Tools:*  Git, TensorFlow
 
 ---
 
