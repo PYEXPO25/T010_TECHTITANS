@@ -1,15 +1,12 @@
 import cv2
+from multiple_faces import detect_multiple_faces
+from eye_movement import detect_eye_movement
+from head_movement import detect_head_movement
 
 class Monitor:
     def __init__(self):
         self.suspicious_logs = []
         self.is_running = False
-
-        # Load the pre-trained deep learning face detection model
-        # self.net = cv2.dnn.readNetFromCaffe(
-        #     "deploy.prototxt",  # Path to the prototxt file
-        #     "res10_300x300_ssd_iter_140000.caffemodel"  # Path to the caffemodel file
-        # )
 
     def start_monitoring(self):
         """Start the monitoring process."""
@@ -20,7 +17,7 @@ class Monitor:
         self.is_running = False
 
     def check_activity(self):
-        """Check for suspicious activity (e.g., multiple faces)."""
+        """Check for suspicious activity (e.g., multiple faces, eye or head movement)."""
         if not self.is_running:
             return False, "Monitoring is not running."
 
@@ -33,36 +30,23 @@ class Monitor:
         finally:
             cap.release()
 
-        # Get the frame dimensions
-        (h, w) = frame.shape[:2]
+        # Detect multiple faces
+        face_activity, face_message = detect_multiple_faces(frame)
+        if face_activity:
+            self.suspicious_logs.append(face_message)
+            return True, face_message
 
-        # Prepare the frame for face detection
-        blob = cv2.dnn.blobFromImage(
-            frame, 1.0, (300, 300),  # Resize to 300x300 and normalize
-            (104.0, 177.0, 123.0)  # Mean subtraction values for normalization
-        )
-        self.net.setInput(blob)
-        detections = self.net.forward()
+        # Detect eye movement
+        eye_activity, eye_message = detect_eye_movement(frame)
+        if eye_activity:
+            self.suspicious_logs.append(eye_message)
+            return True, eye_message
 
-        # Count the number of faces detected
-        face_count = 0
-        for i in range(detections.shape[2]):
-            confidence = detections[0, 0, i, 2]
-
-            # Filter out weak detections
-            if confidence > 0.5:  # Confidence threshold
-                face_count += 1
-
-        if face_count > 1:
-            # Log suspicious activity if multiple faces are detected
-            self.suspicious_logs.append("Multiple faces detected.")
-            return True, "Multiple faces detected."
-
-        # Example: Add noise detection here
-        # noise_detected = False  # Replace with actual noise detection logic
-        # if noise_detected:
-        #     self.suspicious_logs.append("High noise levels detected.")
-        #     return True, "High noise levels detected."
+        # Detect head movement
+        head_activity, head_message = detect_head_movement(frame)
+        if head_activity:
+            self.suspicious_logs.append(head_message)
+            return True, head_message
 
         return False, "No suspicious activity detected."
 
