@@ -28,8 +28,8 @@ List your team members along with their roles.
 - *RAMYA* - FRONTEND
 - *BHAVATHARINI* - BACKEND
 - *ROSHMITA* - BACKEND
-- *SRIMATHI* - SPOOF_DETECTION
-- *NANDHINI* - TENSORFLOW
+- *SRIMATHI* - BACKEND
+- *NANDHINI* - FRONTEND
 - 
 - 
 
@@ -43,8 +43,8 @@ List the technologies and tools used in the project. For example:
 
 - *Frontend:* HTML, CSS
 - *Backend:* Flask
-- *Database:*  MySQL
-- *Other Tools:*  Git, TensorFlow
+- *Database:*  OpenCV
+- *Other Tools:*  Git
 
 ---
 
